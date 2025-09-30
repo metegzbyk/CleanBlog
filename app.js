@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.set("view engine", "ejs");
+
 const blog = {
   id: 1,
   title: "Blog title",
@@ -8,7 +10,7 @@ const blog = {
 };
 
 app.get('/', (req, res) => {
-  res.json(blog);
+  res.render("index", {blog});
 });
 
 const PORT = 3000;
